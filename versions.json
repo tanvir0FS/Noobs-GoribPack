@@ -1,0 +1,9 @@
+[
+  {
+    "version": "10.2.0",
+    "files": {
+      "package.json": "update package"
+    },
+     "reinstallDependencies": true
+  }
+]

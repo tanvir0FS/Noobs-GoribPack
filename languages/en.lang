@@ -1,0 +1,117 @@
+# If you want to move down the line, please use \n. e.g: Nazrul\nNazrul.
+# After changed, you have to restart the bot to use.
+# Put the # character at the beginning of each sentence if you don't want the code to run those lines. 
+# Thanks to https://www.facebook.com/duong.than.net for translate to English!
+
+# Noobs.js 
+
+Noobs.newVersionDetected=𝐘𝐨𝐮 𝐚𝐫𝐞 𝐮𝐬𝐢𝐧𝐠 𝐯𝐞𝐫𝐬𝐢𝐨𝐧 %1, 𝐭𝐡𝐞 𝐥𝐚𝐭𝐞𝐬𝐭 𝐯𝐞𝐫𝐬𝐢𝐨𝐧 𝐢𝐬 %2. 𝐏𝐥𝐞𝐚𝐬𝐞 𝐮𝐩𝐝𝐚𝐭𝐞 𝐭𝐨 𝐭𝐡𝐞 𝐥𝐚𝐭𝐞𝐬𝐭 𝐯𝐞𝐫𝐬𝐢𝐨𝐧 𝐨𝐟 𝐟𝐨𝐫 𝐛𝐞𝐭𝐭𝐞𝐫 𝐛𝐨𝐭 𝐩𝐞𝐫𝐟𝐨𝐫𝐦𝐚𝐧𝐜𝐞. 𝐅𝐨𝐫 𝐮𝐩𝐝𝐚𝐭𝐞 𝐭𝐲𝐩𝐞 𝐢𝐧 𝐜𝐨𝐧𝐬𝐨𝐥𝐞/𝐜𝐦𝐝: 𝐧𝐨𝐝𝐞 𝐮𝐩𝐝𝐚𝐭𝐞
+Noobs.errorFormat=Malformed module!
+Noobs.nameExist=Module's name is similar to another module!
+Noobs.notFoundLanguage=Module %1 don't support your language
+Noobs.notFoundPackage=Can't find package %1 support for module %2, installing...
+Noobs.cantInstallPackage=Can't install package %1 for module %2, error: %3
+Noobs.loadedPackage=Installed whole package successfully for module %1
+Noobs.loadedConfig=Installed config successfully for module %1
+Noobs.cantLoadConfig=Can't install config of module %1, error: %2
+Noobs.cantOnload=Can't launch setup of module %1, error: %1
+Noobs.successLoadModule=Successfully installed module %1
+Noobs.failLoadModule=Can't install module %1, error: %2
+Noobs.finishLoadModule=Installed %1 module commands and %2 module events successfully 
+Noobs.foundPathAppstate=Found appstate file now logging in...
+Noobs.notFoundPathAppstate=Error can't find appstate file maybe file is malformed!
+Noobs.checkListGban=Checking global ban list...
+Noobs.banDevice=Your device have been banned from Noobs Bot, please contact to facebook https://fb.me/nazrul.4x to know more information or asking for unban key, if you already have unban key, please fill it below.
+Noobs.keyNotSameFormat=Wrong format, code must contain 6 number.
+Noobs.codeInputExpired=Your code is wrong or out of date.
+Noobs.unbanDeviceSuccess=Your device are unban now, please restart to use.
+Noobs.userBanned=You had been banned from Priyanshproject when %1 with reason: %2. Please contact to facebook https://fb.me/nazrul.4x to have more information!
+Noobs.finishCheckListGban=Checked global ban list
+Noobs.handleListenError=handleListene has occurred some unexpected errorr, error : %1
+Noobs.warningSourceCode=DETECTED THAT SOURCE CODE'S STRUCTURE HAD BEEN CHANGED , STOP NOW!
+Noobs.refreshListen=Refreshed handleListener...
+Noobs.successConnectDatabase=Connected to database successfully!
+Noobs.failConnectDatabase=Failed to connect to database, error: %1
+
+# includes/listen.js
+
+listen.startLoadEnvironment=Proceed to load the environment variable ...
+listen.loadedEnvironmentThread=Loaded thread environment variable successfully 
+listen.loadedEnvironmentUser=Loaded user environment variable successfully 
+listen.successLoadEnvironment=Loaded environment variable successfully 
+listen.failLoadEnvironment=Can't load environment variable, error: %1
+
+# includes/controller/currencies.js
+
+currencies.needObjectOrArray=Have to be an Array or an Object or maybe both
+currencies.needObject=Have to be an Object
+currencies.needNumber= Have to be an number
+
+# includes/controller/threads.js
+
+threads.needObjectOrArray=Have to be an Array or an Object or maybe both
+threads.needObject=Have to be an Object 
+
+# includes/controller/users.js
+
+users.needObjectOrArray=Have to be an Array or an Object or maybe both
+users.needObject=Have to be an Object
+
+# includes/handle/handleCommand.js
+
+handleCommand.userBanned=⛔️~Oops! You’ve Been Banned!\n%1\n%2\nContact the BØT Owner for Unban ⚠️
+handleCommand.threadBanned=⛔️Your Thread/Group Has Been Banned!\n%1\n%2\nReach Out to the Bot Owner for Assistance ⚠️
+handleCommand.commandNotExist=The Command Doesn't exist Are You looking for this command [ %1 ]!
+handleCommand.commandThreadBanned=⛔️ This Thread is Blocked from Using the Command "%1"
+handleCommand.commandUserBanned=⛔️ You’re Blocked from Using the Command "%1"
+handleCommand.threadNotAllowNSFW=❌ This Thread is Not Permitted to Use NSFW Commands
+handleCommand.cantGetInfoThread=⚠️ Unable to Fetch Thread Details, Error: %1
+handleCommand.permssionNotEnough=📑 This Command is Exclusive to the Bot Admin! ❌ "%1"
+handleCommand.cantSetMessageReaction=⚠️ Something Went Wrong While Reacting to the Message, Error: %1
+handleCommand.executeCommand=⚙️ [ %1 ] Command Executed: %2 | By User: %3 | In Thread: %4 | Args: %5 | Processing Time: %6ms
+handleCommand.commandError=⚠️ Unexpected Error Occurred While Executing Command %1, Error: %2
+
+# includes/handle/handleCommandEvent.js
+
+handleCommandEvent.moduleError=⚠️ Unexpected Error Occurred While Using Command %1, Error: %2
+
+# includes/handle/handleCreateDatabase.js
+
+handleCreateDatabase.newThread=📂 New Thread Created: %1
+handleCreateDatabase.newUser=👤 Welcome Aboard! New User Registered: %1
+
+# includes/handle/handleEvent.js
+
+handleEvent.executeEvent=⚙️ [ %1 ] Event Triggered: %2 | In Thread: %3 | Processing Time: %4ms
+handleEvent.eventError=⚠️ Error Occurred While Processing Event %1, Error: %12
+
+# includes/handle/handleReaction.js
+
+handleReaction.missingValue=⚠️ Missing Essential Information to Respond to Your Request
+handleReaction.executeError=⚠️ Error Occurred While Addressing Your Request, Error: %1
+
+# includes/handle/handleReply.js
+
+handleReply.missingValue=⚠️ Missing Required Details to Process Your Response
+handleReply.executeError=⚠️ Error Occurred While Responding, Error: %1
+
+# includes/handle/handleSchedule.js
+
+handleSchedule.exectuteError=⚠️ Oops! Something Went Wrong During Scheduling in Module %1, Error: %2
+
+# utils/index.js
+
+utils.throwError=ℹ️ [!] Command Not Working! Try Another One! Use %1help %2 for Guidance ℹ️
+
+# updater.js
+
+updater.latestVersion=You are using the latest version
+updater.cantFindVersion=You are using an undefined version (%1), please check your package.json file again
+updater.newVersions=There are %1 new versions to update, starting to update...
+updater.updateSuccess=Update successfully%1
+updater.configChanged=The %1 has been changed, please check your config.json file again
+updater.installingPackages=Installing dependencies for bot...
+updater.installSuccess=Installed dependencies successfully, restart the bot to use the new version
+updater.backupSuccess=Successfully backed up changed files, see in the %1 folder
+updater.restartToApply=. Restart the bot to apply the new version
+updater.skipFile=There is a new version of the %1 file, but you have skipped this file during the update process with the comment %2 in this file
