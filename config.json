@@ -28,9 +28,9 @@
   "eventDisabled": [],
   "OWNER": "Gogomojo",
   "BOTNAME": "Botfck",
-  "PREFIX": "/",
+  "PREFIX": "+",
   "ADMINBOT": [
-    "",
+    "100022194825565",
     ""
   ],
   "DESIGN": {
