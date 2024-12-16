@@ -10,7 +10,7 @@ module.exports.config = {
   description: "Auto react based on the context of users",
   usePrefix: true,
   commandCategory: "No Prefix",
-  usage: "Type ?autoreact on or ?autoreact off to enable or disable the feature.",
+  usage: "Type +autoreact on or +autoreact off to enable or disable the feature.",
   cooldowns: 3,
 };
 
