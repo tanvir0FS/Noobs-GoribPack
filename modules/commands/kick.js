@@ -1,29 +1,40 @@
 module.exports.config = {
-	name: "kick",
-	version: "1.0.0", 
-	hasPermssion: 1,
-	credits: "Mirai Team",
-	description: "Xoá người bạn cần xoá khỏi nhóm bằng cách tag"
-,
-    hide: true,
-    usePrefix: true,
-	commandCategory: "other", 
-	usages: "[tag]", 
-	cooldowns: 0,
+  name: "kick",
+  version: "1.0.1", 
+  perimssion: 1,
+  credits: "Yan",
+  description: "Clear the person you need to remove from the group by tag",
+  category: "System",
+  prefix: true,
+  usages: "[tag]", 
+  cooldowns: 2,
 };
 
-module.exports.run = function({ api, event }) {
-	var mention = Object.keys(event.mentions);
-	return api.getThreadInfo(event.threadID, (err, info) => {
-		if (err) return api.sendMessage("Đã có lỗi xảy ra!",event.threadID);
-		if (!info.adminIDs.some(item => item.id == api.getCurrentUserID())) return api.sendMessage('Need group admin rights\Please add and try again!', event.threadID, event.messageID);
-		if(!mention[0]) return api.sendMessage("You must tag the person to kick",event.threadID);
-		if (info.adminIDs.some(item => item.id == event.senderID)) {
-			for (let o in mention) {
-				setTimeout(() => {
-					api.removeUserFromGroup(mention[o],event.threadID) 
-				},3000)
-			}
-		}
-	})
-        }
+module.exports.languages = {
+  "vi": {
+    "error": "Đã có lỗi xảy ra, vui lòng thử lại sau",
+    "needPermssion": "Cần quyền quản trị viên nhóm\nVui lòng thêm và thử lại!",
+    "missingTag": "Bạn phải tag người cần kick"
+  },
+  "en": {
+    "error": "Error! An error occurred. Please try again later!",
+    "needPermssion": "Need group admin\nPlease add and try again!",
+    "missingTag": "You need tag some person to kick"
+  }
+}
+
+module.exports.run = async function({ api, event, getText, Threads }) {
+  var mention = Object.keys(event.mentions);
+  try {
+    let dataThread = (await Threads.getData(event.threadID)).threadInfo;
+    if (!dataThread.adminIDs.some(item => item.id == api.getCurrentUserID())) return api.sendMessage(getText("needPermssion"), event.threadID, event.messageID);
+    if(!mention[0]) return api.sendMessage("You have to tag the need to kick",event.threadID);
+    if (dataThread.adminIDs.some(item => item.id == event.senderID)) {
+      for (const o in mention) {
+        setTimeout(() => {
+          api.removeUserFromGroup(mention[o],event.threadID) 
+        },3000)
+      }
+    }
+  } catch { return api.sendMessage(getText("error"),event.threadID) }
+}

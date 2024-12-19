@@ -1,23 +1,22 @@
 module.exports.config = {
-  name: "leave",
-  eventType: ['log:unsubscribe'],
-  version: "1.0.0",
-  credits: "Jonell Magallanes",
-  description: "GROUP LEAVE NOTIFICATION"
+	name: "leave",
+	eventType: ["log:unsubscribe"],
+	version: "1.0.0",
+	credits: "ryuko",
+	description: "notify leave.",
 };
 
-module.exports.run = async function({ api, event }) {
-  if (event.logMessageType === "log:unsubscribe") {
-    if (event.logMessageData.leftParticipantFbId == api.getCurrentUserID()) return;
+module.exports.run = async function({ api, event, Users, Threads }) {
+	if (event.logMessageData.leftParticipantFbId == api.getCurrentUserID()) return;
+	const { threadID } = event;
+	const data = global.data.threadData.get(parseInt(threadID)) || (await Threads.getData(threadID)).data;
+	const name = global.data.userName.get(event.logMessageData.leftParticipantFbId) || await Users.getNameUser(event.logMessageData.leftParticipantFbId);
+	const type = (event.author == event.logMessageData.leftParticipantFbId) ? "ingat sa byahe haha" : "ID KICKED BY ADMIN";
+	var msg, formPush
+	(typeof data.customLeave == "undefined") ? msg = "[🫢] {name}, {type}" : msg = data.customLeave;
+	msg = msg.replace(/\{name}/g, name).replace(/\{type}/g, type);
 
-    try {
-      let { threadName, participantIDs } = await api.getThreadInfo(event.threadID);
-      const type = (event.author == event.logMessageData.leftParticipantFbId) ? "left the group." : "kicked by Admin of the group";
-      let name = (await api.getUserInfo(event.logMessageData.leftParticipantFbId))[event.logMessageData.leftParticipantFbId].name;
-
-      api.shareContact(`${name} has been ${type}\nMember’s left: ${participantIDs.length}`, event.logMessageData.leftParticipantFbId, event.threadID);
-    } catch (err) {
-      console.error("ERROR: ", err);
-    }
-  }
-};
+	var formPush = { body: msg }
+	
+	return api.sendMessage(formPush, threadID);
+}
